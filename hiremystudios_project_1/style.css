@@ -112,12 +112,19 @@
 .home-section-div {
   position: relative;
   min-width: 100%;
+  height: 100%;
 }
 .home-section-img {
   position: absolute;
+  width: 100%;
+  height: 100vh;
+  filter: contrast(1.3);
 }
 
 .home-section-content {
   top: 50%;
+  bottom: 50%;
+  left: 0;
+  right: 70%;
   position: absolute;
 }
