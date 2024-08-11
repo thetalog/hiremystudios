@@ -33,7 +33,7 @@
   font-size: 40px;
   font-style: normal;
   color: rgb(255, 255, 255);
-  padding: 0;
+  margin: 0 !important;
 }
 .home-section-container-content {
   font-family: "Nunito", sans-serif;
@@ -47,9 +47,24 @@
 .home-section-nav {
   background-color: rgb(1, 61, 33);
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .home-section-nav-title {
   font-family: "DarlingCoffee", sans-serif;
   font-size: 35px;
   color: rgb(247, 247, 247);
+}
+.ui.button.nav-button-bold-value {
+  border-radius: 4px;
+  padding: 0.6em 0.8em 0.6em;
+  font-size: 18px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 900 !important;
+  color: rgb(1, 61, 33);
+}
+.home-section-nav-button {
+  display: flex;
+  gap: 10px;
 }
