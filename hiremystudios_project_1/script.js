@@ -44,3 +44,30 @@ productsButtonElement.addEventListener("click", (event) => {
   productsContentElement.textContent =
     productsShowCase[currentCounterProductsShow]["description"];
 });
+
+const productBackgroundVideoSrc = [
+  "./assets/video_1.mp4",
+  "./assets/video_2.mp4",
+  // "./assets/video_3.mp4",
+];
+
+const backgroundVideoElement = document.querySelector("#background-video");
+backgroundVideoElement.setAttribute("src", productBackgroundVideoSrc[0]);
+let firstProductBackgroundVideoShowCount = 0;
+const countProductBackgroundVideoShowCount = () => {
+  if (
+    firstProductBackgroundVideoShowCount + 1 <=
+    productBackgroundVideoSrc.length - 1
+  ) {
+    return ++firstProductBackgroundVideoShowCount;
+  } else {
+    firstProductBackgroundVideoShowCount = 0;
+    return 0;
+  }
+};
+backgroundVideoElement.addEventListener("ended", (event) => {
+  const counterProductBackgroundVideoShowCount =
+    countProductBackgroundVideoShowCount();
+  event.currentTarget.src =
+    productBackgroundVideoSrc[counterProductBackgroundVideoShowCount];
+});
