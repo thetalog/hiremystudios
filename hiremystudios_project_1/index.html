@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aora Farming | Guwahati Biggest Farm Producer</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
       rel="stylesheet"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>
     <link href="./style.css" rel="stylesheet" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,6 +21,7 @@
       href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
       rel="stylesheet"
     />
+    <script src="./script.js" defer></script>
   </head>
   <body>
     <section class="home-section">
@@ -50,24 +51,20 @@
       </div>
     </section>
     <section class="products-section">
-      <div class="cashew-class">
-        <div class="products-cashew-img-container cashew-class-child-1">
-          <img
-            src="./assets/cashew.png"
-            alt="cashew"
-            class="products-cashew-img"
-          />
+      <video autoplay muted loop id="background-video">
+        <source src="./assets/video_1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div class="products-class">
+        <div class="products-class-child-1">
+          <div class="products-img-container products-class-child-child-1">
+            <img src="" alt="products" class="products-img" />
+          </div>
+          <p class="products-content products-class-child-child-2"></p>
         </div>
-        <p class="products-cashew-content cashew-class-child-2">
-          We offer premium cashews that stand out for their exceptional quality
-          and flavor. Grown on our well-tended farms, our cashews are
-          hand-harvested and meticulously processed to ensure every nut is
-          fresh, crunchy, and full of natural goodness. Whether you're looking
-          to add a nutritious touch to your snacks or elevate your recipes, our
-          cashews are the perfect choice. Experience the difference with Aura
-          Farming's superior cashews, and taste the dedication we put into every
-          harvest.
-        </p>
+        <div class="products-class-child-2">
+          <button class="ui button products-button">Next ></button>
+        </div>
       </div>
       <div></div>
       <div></div>
