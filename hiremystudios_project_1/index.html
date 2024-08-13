@@ -21,6 +21,7 @@
       href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
       rel="stylesheet"
     />
+
     <script src="./script.js" defer></script>
   </head>
   <body>
@@ -30,7 +31,12 @@
           <h3 class="home-section-nav-title">Aora Farming</h3>
         </div>
         <div class="home-section-nav-button">
-          <button class="ui button nav-button-bold-value">Our Products</button>
+          <button
+            class="ui button nav-button-bold-value"
+            onclick="document.getElementById('products-section-fragment').scrollIntoView();"
+          >
+            Our Products
+          </button>
           <button class="ui button nav-button-bold-value">Subscription</button>
           <button class="ui button nav-button-bold-value">Contact Us</button>
         </div>
@@ -50,7 +56,7 @@
         </div>
       </div>
     </section>
-    <section class="products-section">
+    <section class="products-section" id="products-section-fragment">
       <video autoplay muted id="background-video">
         <source src="" type="video/mp4" />
         Your browser does not support the video tag.

@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 @font-face {
   font-family: "DarlingCoffee";
   src: url("./assets/darling_coffee/Darling\ Coffee.ttf") format("truetype");
@@ -89,7 +92,7 @@
   height: 100%;
   z-index: -1;
   transform: scale(1.2);
-  filter: brightness(70%) contrast(120%) grayscale(50%);
+  filter: brightness(70%) contrast(120%) grayscale(40%);
 }
 .zoom-animation {
   animation: zoom 7s infinite alternate;
