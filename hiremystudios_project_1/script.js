@@ -45,29 +45,64 @@ productsButtonElement.addEventListener("click", (event) => {
     productsShowCase[currentCounterProductsShow]["description"];
 });
 
-const productBackgroundVideoSrc = [
-  "./assets/video_1.mp4",
-  "./assets/video_2.mp4",
-  // "./assets/video_3.mp4",
-];
+document.addEventListener("DOMContentLoaded", () => {
+  const productBackgroundVideoSrc = [
+    "./assets/video_1.mp4",
+    "./assets/video_2.mp4",
+    // "./assets/video_3.mp4",
+  ];
 
-const backgroundVideoElement = document.querySelector("#background-video");
-backgroundVideoElement.setAttribute("src", productBackgroundVideoSrc[0]);
-let firstProductBackgroundVideoShowCount = 0;
-const countProductBackgroundVideoShowCount = () => {
-  if (
-    firstProductBackgroundVideoShowCount + 1 <=
-    productBackgroundVideoSrc.length - 1
-  ) {
-    return ++firstProductBackgroundVideoShowCount;
-  } else {
-    firstProductBackgroundVideoShowCount = 0;
-    return 0;
-  }
-};
-backgroundVideoElement.addEventListener("ended", (event) => {
-  const counterProductBackgroundVideoShowCount =
-    countProductBackgroundVideoShowCount();
-  event.currentTarget.src =
-    productBackgroundVideoSrc[counterProductBackgroundVideoShowCount];
+  const backgroundVideoElement = document.querySelector("#background-video");
+  const videoSourceElement = backgroundVideoElement.querySelector("source"); // Ensure this is defined
+
+  let videoIndex = 0;
+  const fadeDuration = 0.5; // Duration of the fade animation in seconds
+  const fadeBeforeEnd = 5; // Number of seconds before the end to start fading out
+
+  // Function to set the video source based on index
+  const setVideoSource = (index) => {
+    videoSourceElement.src = productBackgroundVideoSrc[index];
+    backgroundVideoElement.load();
+    backgroundVideoElement.play();
+  };
+
+  backgroundVideoElement.classList.add("zoom-animation");
+
+  // Set the initial video source to the video at index 0
+  setVideoSource(videoIndex);
+
+  const getNextVideoIndex = () => {
+    videoIndex = (videoIndex + 1) % productBackgroundVideoSrc.length;
+    return videoIndex;
+  };
+
+  const fadeOut = () => {
+    backgroundVideoElement.style.animation = `zoom 8s infinite alternate, fadeOut ${fadeDuration}s ease-in-out forwards`;
+  };
+
+  const fadeIn = () => {
+    backgroundVideoElement.style.animation = `zoom 8s infinite alternate, fadeIn ${fadeDuration}s ease-in-out forwards`;
+  };
+
+  backgroundVideoElement.addEventListener("ended", () => {
+    // Apply fade-out animation
+    fadeOut();
+
+    // Determine the next video source index
+    const nextIndex = getNextVideoIndex();
+
+    // Update the source element
+    const nextSource = productBackgroundVideoSrc[nextIndex];
+    videoSourceElement.src = nextSource;
+
+    // Wait for the fade-out animation to complete
+    setTimeout(() => {
+      // Reload and play the new video
+      backgroundVideoElement.load();
+      backgroundVideoElement.play();
+
+      // Apply fade-in animation
+      fadeIn();
+    }, fadeDuration * 1000); // Convert duration to milliseconds
+  });
 });
