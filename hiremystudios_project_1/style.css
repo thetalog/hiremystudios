@@ -214,3 +214,43 @@ html {
     opacity: 1;
   }
 }
+
+.subscription-section {
+  height: 100vh;
+  width: 100vw;
+  padding: 8em 25em 8em 25em;
+  display: flex;
+  flex-direction: column;
+}
+.subscription-section-tag {
+  font-family: "DarlingCoffee", sans-serif;
+  font-size: 35px;
+}
+.weekly-updates-container {
+  background-color: rgb(255, 244, 231);
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  overflow-y: scroll;
+
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: 15px;
+  font-style: normal;
+}
+.weekly-update-element {
+  margin-top: 10px;
+  background-color: rgb(131, 92, 70);
+  padding: 25px;
+  color: white;
+  border-radius: 12px;
+  margin-right: 10px;
+}
+.weekly-update-element-date {
+  margin: 0;
+}
+.weekly-update-element-heading {
+  margin: 0;
+  font-weight: 900;
+}

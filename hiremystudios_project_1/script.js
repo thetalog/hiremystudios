@@ -54,8 +54,8 @@ const countProductsShow = () => {
 };
 
 const productsButtonBackgroundList = [
-  "rgb(16, 108, 141)",
   "rgb(1, 61, 33)",
+  "rgb(16, 108, 141)",
   "rgba(255,154,46,1)",
   "rgba(157,16,19,1)",
 ];
@@ -68,8 +68,8 @@ const getNextProductsButtonBackgroundListIndex = () => {
 };
 
 const productsContainerGradientList = [
-  "radial-gradient( circle, rgba(16, 139, 182, 1) 0%, rgba(0, 64, 87, 1) 100%, rgba(100, 64, 87, 1) 100%)",
   "radial-gradient( circle, rgba(75, 143, 111, 1) 0%, rgba(53, 107, 92, 1) 87%, rgba(52, 103, 90, 1) 92%, rgba(52, 104, 79, 1) 100% )",
+  "radial-gradient( circle, rgba(16, 139, 182, 1) 0%, rgba(0, 64, 87, 1) 100%, rgba(100, 64, 87, 1) 100%)",
   "radial-gradient(circle, rgba(213,199,5,1) 0%, rgba(255,195,96,1) 55%, rgba(255,154,46,1) 100%, rgba(52,50,0,1) 100%)",
   "radial-gradient(circle, rgba(185,12,12,1) 28%, rgba(157,16,19,1) 58%, rgba(122,0,14,1) 83%)",
 ];
@@ -181,3 +181,51 @@ document.addEventListener("DOMContentLoaded", () => {
     }, fadeDuration * 1000); // Convert duration to milliseconds
   });
 });
+
+// Subscription Section
+const weeklyUpdatesList = [
+  {
+    updateDate: "August 14, 2024",
+    updateHeading: "Harvesting Begins for the Cashew Season!",
+    updateContent:
+      "We’re excited to announce the start of our cashew harvest this week at Aura Farming. The trees are yielding a bountiful crop of high-quality cashews, and our team is busy hand-harvesting to ensure the best selection. Stay tuned for updates on the processing and quality checks!",
+  },
+  {
+    updateDate: "August 21, 2024",
+    updateHeading: "New Pistachio Varieties in the Orchard",
+    updateContent:
+      "This week, we planted new varieties of pistachios in our orchard. These varieties are known for their rich flavor and superior texture. We’re looking forward to watching them grow and will keep you updated on their progress. Our current pistachio crop continues to thrive, with excellent quality nuts being harvested.",
+  },
+  {
+    updateDate: "August 28, 2024",
+    updateHeading: "Hazelnut Processing and Quality Control",
+    updateContent:
+      "Our hazelnuts are now in the processing phase. We’ve implemented enhanced quality control measures to ensure each nut meets our high standards. After processing, the hazelnuts will be ready for packaging and distribution. We’re committed to delivering the freshest and most flavorful hazelnuts to our customers.",
+  },
+  {
+    updateDate: "September 4, 2024",
+    updateHeading: "Sustainable Farming Practices in Action",
+    updateContent:
+      "At Aura Farming, sustainability is a core value. This week, we’ve introduced new water-saving irrigation techniques and are using organic fertilizers to reduce our environmental impact. Our commitment to sustainable practices ensures that our nuts are not only high-quality but also grown in an eco-friendly manner.",
+  },
+  {
+    updateDate: "September 11, 2024",
+    updateHeading: "Preparing for Upcoming Nut Festival",
+    updateContent:
+      "We’re thrilled to announce our participation in the upcoming Nut Festival! Our booth will feature our finest cashews, pistachios, and hazelnuts. It’s a great opportunity for us to connect with our community and showcase the premium quality of our products. We hope to see you there!",
+  },
+];
+
+const weeklyUpdatesContainerElement = document.querySelector(
+  ".weekly-updates-container"
+);
+
+for (i of weeklyUpdatesList) {
+  weeklyUpdatesContainerElement.innerHTML += `
+    <div class="weekly-update-element">
+      <h5 class="weekly-update-element-date">${i["updateDate"]}</h5>
+      <h2 class="weekly-update-element-heading">${i["updateHeading"]}</h2>
+      <p class="weekly-update-element-content">${i["updateContent"]}</p>
+    </div>
+  `;
+}

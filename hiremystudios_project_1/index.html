@@ -37,7 +37,12 @@
           >
             Our Products
           </button>
-          <button class="ui button nav-button-bold-value">Subscription</button>
+          <button
+            class="ui button nav-button-bold-value"
+            onclick="document.getElementById('subscription-section-fragment').scrollIntoView();"
+          >
+            Subscription
+          </button>
           <button class="ui button nav-button-bold-value">Contact Us</button>
         </div>
       </div>
@@ -73,10 +78,11 @@
           <button class="ui button products-button">></button>
         </div>
       </div>
-      <div></div>
-      <div></div>
-      <div></div>
     </section>
-    <section></section>
+    <section class="subscription-section" id="subscription-section-fragment">
+      <div class="subscription-section-tag">Subscription</div>
+      <h4 class="subscription-section-sub-tag">Weekly Updates</h4>
+      <div class="weekly-updates-container"></div>
+    </section>
   </body>
 </html>
