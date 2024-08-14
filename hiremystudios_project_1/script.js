@@ -30,13 +30,25 @@ const countProductsShow = () => {
     return 0;
   }
 };
+
+const productsButtonBackgroundList = ["rgb(16, 108, 141)", "rgb(1, 61, 33)"];
+let productsButtonBackgroundListIndex = 0;
+const getNextProductsButtonBackgroundListIndex = () => {
+  productsButtonBackgroundListIndex =
+    (productsButtonBackgroundListIndex + 1) %
+    productsButtonBackgroundList.length;
+  return productsButtonBackgroundListIndex;
+};
+
 const productsContainerGradientList = [
   "radial-gradient( circle, rgba(16, 139, 182, 1) 0%, rgba(0, 64, 87, 1) 100% )",
   "radial-gradient( circle, rgba(75, 143, 111, 1) 0%, rgba(53, 107, 92, 1) 87%, rgba(52, 103, 90, 1) 92%, rgba(52, 104, 79, 1) 100% )",
 ];
-const productsContainerElement = document.querySelector(".products-class");
-productsContainerElement.style.background = productsContainerGradientList[0];
 
+const productsContainerElement = document.querySelector(".products-class");
+
+productsContainerElement.style.background = productsContainerGradientList[0];
+productsButtonElement.style.backgroundColor = productsButtonBackgroundList[0];
 let productsGradientIndex = 0;
 const getNextProductsGradientIndex = () => {
   productsGradientIndex =
@@ -46,15 +58,16 @@ const getNextProductsGradientIndex = () => {
 productsContentElement.classList.add("text-focus-in");
 productsButtonElement.addEventListener("click", (event) => {
   const currentCounterProductsShow = countProductsShow();
-
+  productsButtonElement.style.backgroundColor =
+    productsButtonBackgroundList[getNextProductsButtonBackgroundListIndex()];
   // Start the rotation animation
   productsImageElement.style.animation = "none";
   // Force a reflow to ensure the animation is reset
   productsImageElement.offsetHeight; // Trigger a reflow
   productsImageElement.style.animation = `productsRotateOnChange 1s forwards`;
+  productsContainerElement.offsetHeight;
   productsContainerElement.style.background =
     productsContainerGradientList[getNextProductsGradientIndex()];
-
   // Change the image after the first rotation completes (5 seconds)
   productsImageElement.setAttribute(
     "src",
