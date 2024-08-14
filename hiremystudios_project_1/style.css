@@ -176,10 +176,10 @@ html {
 }
 @keyframes productsRotateOnChange {
   from {
-    transform: rotate(0deg); /* Rotate from 20 degrees */
+    transform: rotate(-80deg); /* Rotate from 20 degrees */
   }
   to {
-    transform: rotate(80deg); /* Rotate to 50 degrees */
+    transform: rotate(0deg); /* Rotate to 50 degrees */
   }
 }
 

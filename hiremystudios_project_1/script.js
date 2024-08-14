@@ -17,6 +17,12 @@ const productsShowCase = [
     description:
       "Our hazelnuts are rich in flavor, boasting a buttery texture and a subtly sweet taste that enhances both sweet and savory dishes. Whether you're baking decadent desserts, making rich spreads, or enjoying them as a healthy snack, our hazelnuts provide a delightful crunch and nutritional benefits.",
   },
+  {
+    name: "pistachio",
+    linkSrc: "./assets/pistachio.png",
+    description:
+      "Whether you're looking to enhance your cooking or enjoy a healthy treat, Aura Farming's pistachios deliver exceptional quality in every bite. Discover the difference our dedication makes and experience the unmatched flavor of our premium pistachios.",
+  },
 ];
 
 const productsImageElement = document.querySelector(".products-img");
