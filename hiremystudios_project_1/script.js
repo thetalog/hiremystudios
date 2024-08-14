@@ -1,3 +1,12 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
+
 const productsShowCase = [
   {
     name: "cashew",
@@ -205,7 +214,7 @@ const weeklyUpdatesContainerElement = document.querySelector(
   ".weekly-updates-container"
 );
 
-for (i of weeklyUpdatesList) {
+for (let i of weeklyUpdatesList) {
   weeklyUpdatesContainerElement.innerHTML += `
     <div class="weekly-update-element">
       <h5 class="weekly-update-element-date">${i["updateDate"]}</h5>
@@ -242,6 +251,36 @@ document
       errorMessage.textContent = "Please enter a message.";
     } else {
       errorMessage.textContent = "Form submitted successfully!";
+    }
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAwEPlFxPZf8DCx3Zj6BYavy0tg6CDn-sI",
+      authDomain: "aora-90d10.firebaseapp.com",
+      projectId: "aora-90d10",
+      storageBucket: "aora-90d10.appspot.com",
+      messagingSenderId: "656947110935",
+      appId: "1:656947110935:web:37a697984965e90adfe852",
+      measurementId: "G-5BREDQB3VM",
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getFirestore(app);
+
+    const usersCollection = collection(db, "support");
+
+    try {
+      (async () => {
+        await addDoc(usersCollection, {
+          email: email,
+          subject: subject,
+          message: message,
+        });
+        console.log("Document successfully written!");
+      })();
+    } catch (error) {
+      console.error("Error adding document: ", error);
     }
   });
 
