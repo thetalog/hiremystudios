@@ -21,8 +21,18 @@
       href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
       rel="stylesheet"
     />
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="./script.js" defer></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+
+      // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
+
+      // Add Firebase products that you want to use
+      import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+      import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+    </script>
   </head>
   <body>
     <section class="home-section">
@@ -83,6 +93,70 @@
       <div class="subscription-section-tag">Subscription</div>
       <h4 class="subscription-section-sub-tag">Weekly Updates</h4>
       <div class="weekly-updates-container"></div>
+    </section>
+    <section class="contact-section" id="contact-section-fragment">
+      <div class="contact-section-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17629.998439091643!2d91.66742721504568!3d26.1325883982366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5b5429dcd223%3A0x81c21924efef0b47!2sTetelia%2C%20Guwahati%2C%20Assam!5e1!3m2!1sen!2sin!4v1723649984372!5m2!1sen!2sin"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <div class="contact-section-info-container">
+        <div class="contact-section-address">
+          <h3>
+            <img
+              src="./assets/location.svg"
+              alt="location-icon"
+              height="20px"
+              width="20px"
+              class="form-svg"
+            />
+            Lachit Borphukan Path, Tetelia, Guwahati, Assam 781011
+          </h3>
+          <h3>
+            <img
+              src="./assets/telephone.svg"
+              alt="telephone-icon"
+              height="20px"
+              width="20px"
+              class="form-svg"
+            />
+            +91 1100-8196
+          </h3>
+          <h3>
+            <img
+              src="./assets/email.svg"
+              alt="email-icon"
+              height="20px"
+              width="20px"
+              class="form-svg"
+            />
+            contact@aorafarming.co.in
+          </h3>
+        </div>
+        <div class="contact-section-form">
+          <div class="ui form">
+            <input type="email" placeholder="Your Email" id="form-email" />
+            <input type="text" placeholder="Subject" id="form-subject" />
+            <textarea placeholder="Message" id="form-message"></textarea>
+            <div
+              class="g-recaptcha"
+              data-sitekey="6Ldg6CYqAAAAAAnmyI3cvvFLmOW_epLCzLsCWC9C"
+            ></div>
+            <div class="ui label" id="error-message">
+              <div class="detail"></div>
+            </div>
+            <div class="ui button" tabindex="0" id="form-submit-btn">Send</div>
+          </div>
+          <!-- Site Key 6Ldg6CYqAAAAAAnmyI3cvvFLmOW_epLCzLsCWC9C -->
+          <!-- Secret Key 6Ldg6CYqAAAAAHS9txBU57s2vwzS2uG7Wr46WGOg -->
+        </div>
+      </div>
     </section>
   </body>
 </html>

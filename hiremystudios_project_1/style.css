@@ -10,8 +10,8 @@ html {
   src: url("./assets/fonarto/Fonarto.ttf") format("truetype");
 }
 .home-section {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: rgb(5, 110, 61);
 }
 .home-section-div {
@@ -83,6 +83,7 @@ html {
 .home-section-nav-button {
   display: flex;
   gap: 10px;
+  margin-right: 20px;
 }
 .products-section {
   height: 100vh;
@@ -221,18 +222,17 @@ html {
   padding: 8em 25em 8em 25em;
   display: flex;
   flex-direction: column;
+  background-color: rgb(255, 241, 224);
 }
 .subscription-section-tag {
   font-family: "DarlingCoffee", sans-serif;
   font-size: 35px;
 }
 .weekly-updates-container {
-  background-color: rgb(255, 244, 231);
   height: 100%;
   width: 100%;
   border-radius: 10px;
   overflow-y: scroll;
-
   font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
@@ -253,4 +253,56 @@ html {
 .weekly-update-element-heading {
   margin: 0;
   font-weight: 900;
+}
+
+.contact-section {
+  height: 100vh;
+  width: 100vw;
+  padding: 8em 25em 8em 25em;
+  display: flex;
+  background: radial-gradient(
+    circle,
+    rgba(16, 139, 182, 1) 0%,
+    rgba(0, 64, 87, 1) 100%,
+    rgba(100, 64, 87, 1) 100%
+  );
+  gap: 100px;
+}
+.contact-section-address {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-size: 20px;
+  font-style: normal;
+  color: white;
+}
+
+.contact-section-address > * {
+  text-align: left;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.contact-section-address > :nth-last-child(n) {
+  margin-bottom: 20px;
+}
+.form-svg {
+  margin-top: 4px;
+  margin: 8px 5px 0px 3px;
+}
+
+.ui.form > *,
+.ui.form input[type="email"],
+.ui.form textarea,
+.ui.form input[type="text"] {
+  margin-bottom: 10px;
+}
+
+#error-message {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-size: 15px;
+  font-style: normal;
+  display: none;
+  color: red;
 }
