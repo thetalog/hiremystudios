@@ -30,17 +30,45 @@ const countProductsShow = () => {
     return 0;
   }
 };
+const productsContainerGradientList = [
+  "radial-gradient( circle, rgba(16, 139, 182, 1) 0%, rgba(0, 64, 87, 1) 100% )",
+  "radial-gradient( circle, rgba(75, 143, 111, 1) 0%, rgba(53, 107, 92, 1) 87%, rgba(52, 103, 90, 1) 92%, rgba(52, 104, 79, 1) 100% )",
+];
+const productsContainerElement = document.querySelector(".products-class");
+productsContainerElement.style.background = productsContainerGradientList[0];
 
+let productsGradientIndex = 0;
+const getNextProductsGradientIndex = () => {
+  productsGradientIndex =
+    (productsGradientIndex + 1) % productsContainerGradientList.length;
+  return productsGradientIndex;
+};
+productsContentElement.classList.add("text-focus-in");
 productsButtonElement.addEventListener("click", (event) => {
   const currentCounterProductsShow = countProductsShow();
+
+  // Start the rotation animation
+  productsImageElement.style.animation = "none";
+  // Force a reflow to ensure the animation is reset
+  productsImageElement.offsetHeight; // Trigger a reflow
+  productsImageElement.style.animation = `productsRotateOnChange 1s forwards`;
+  productsContainerElement.style.background =
+    productsContainerGradientList[getNextProductsGradientIndex()];
+
+  // Change the image after the first rotation completes (5 seconds)
   productsImageElement.setAttribute(
     "src",
     productsShowCase[currentCounterProductsShow]["linkSrc"]
   );
+  // Update alt text and description after the reverse animation completes (another 5 seconds)
+
   productsImageElement.setAttribute(
     "alt",
     productsShowCase[currentCounterProductsShow]["name"]
   );
+  productsContentElement.classList.remove("text-focus-in");
+  productsContentElement.offsetHeight; // Trigger a reflow
+  productsContentElement.classList.add("text-focus-in");
   productsContentElement.textContent =
     productsShowCase[currentCounterProductsShow]["description"];
 });

@@ -63,13 +63,21 @@ html {
   font-size: 35px;
   color: rgb(247, 247, 247);
 }
-.ui.button.nav-button-bold-value,
-.ui.button.products-button {
+.ui.button.nav-button-bold-value {
   border-radius: 4px;
   padding: 0.6em 0.8em 0.6em;
   font-size: 18px;
   font-weight: 700 !important;
   color: rgb(1, 61, 33);
+  font-family: "other", sans-serif;
+}
+.ui.button.products-button {
+  border-radius: 100%;
+  text-align: center;
+  padding: 0.6em 0.8em 0.6em;
+  font-size: 18px;
+  font-weight: 700 !important;
+  background-color: rgb(255, 255, 255);
   font-family: "other", sans-serif;
 }
 .home-section-nav-button {
@@ -92,7 +100,7 @@ html {
   height: 100%;
   z-index: -1;
   transform: scale(1.2);
-  filter: brightness(70%) contrast(120%) grayscale(40%);
+  filter: blur(2px) brightness(70%) contrast(120%) grayscale(10%);
 }
 .zoom-animation {
   animation: zoom 7s infinite alternate;
@@ -126,14 +134,9 @@ html {
 
 .products-class {
   display: flex;
-  flex-direction: column;
-  background: radial-gradient(
-    circle,
-    rgba(75, 143, 111, 1) 0%,
-    rgba(53, 107, 92, 1) 87%,
-    rgba(52, 103, 90, 1) 92%,
-    rgba(52, 104, 79, 1) 100%
-  );
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   border-radius: 40px;
   height: 100%;
   width: 100%;
@@ -148,7 +151,11 @@ html {
 }
 .products-class-child-2 {
   align-self: flex-end;
-  padding-right: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 .products-class-child-child-1 {
   flex: 1;
@@ -167,6 +174,15 @@ html {
   max-width: 400px; /* Set desired width */
   height: 400px;
 }
+@keyframes productsRotateOnChange {
+  from {
+    transform: rotate(0deg); /* Rotate from 20 degrees */
+  }
+  to {
+    transform: rotate(80deg); /* Rotate to 50 degrees */
+  }
+}
+
 .products-content {
   font-family: "other", sans-serif;
   font-size: 25px;
@@ -174,4 +190,19 @@ html {
   line-height: 30px;
   color: white;
   padding-right: 20px;
+}
+
+.text-focus-in {
+  animation: text-focus-in 500ms cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@keyframes text-focus-in {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
 }
