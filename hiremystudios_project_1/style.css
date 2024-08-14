@@ -100,7 +100,7 @@ html {
   height: 100%;
   z-index: -1;
   transform: scale(1.2);
-  filter: blur(2px) brightness(70%) contrast(120%) grayscale(10%);
+  filter: blur(2px) brightness(70%) contrast(150%) grayscale(30%);
 }
 .zoom-animation {
   animation: zoom 7s infinite alternate;
@@ -167,8 +167,16 @@ html {
 }
 .products-img-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.products-img-tag {
+  font-family: "DarlingCoffee", sans-serif;
+  align-self: flex-start;
+  font-size: 35px;
+  padding-left: 50px;
+  color: rgb(247, 247, 247);
 }
 .products-img {
   max-width: 400px; /* Set desired width */

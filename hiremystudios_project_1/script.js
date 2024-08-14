@@ -29,6 +29,16 @@ const productsImageElement = document.querySelector(".products-img");
 productsImageElement.setAttribute("src", productsShowCase[0]["linkSrc"]);
 productsImageElement.setAttribute("alt", productsShowCase[0]["name"]);
 
+function capitalizeFirstLetter(string) {
+  if (string.length === 0) return string; // Handle empty string
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+const productsTagNameElement = document.querySelector(".products-img-tag");
+productsTagNameElement.textContent = capitalizeFirstLetter(
+  productsShowCase[0]["name"]
+);
+
 const productsContentElement = document.querySelector(".products-content");
 productsContentElement.textContent = productsShowCase[0]["description"];
 
@@ -43,7 +53,12 @@ const countProductsShow = () => {
   }
 };
 
-const productsButtonBackgroundList = ["rgb(16, 108, 141)", "rgb(1, 61, 33)"];
+const productsButtonBackgroundList = [
+  "rgb(16, 108, 141)",
+  "rgb(1, 61, 33)",
+  "rgba(255,154,46,1)",
+  "rgba(157,16,19,1)",
+];
 let productsButtonBackgroundListIndex = 0;
 const getNextProductsButtonBackgroundListIndex = () => {
   productsButtonBackgroundListIndex =
@@ -53,8 +68,10 @@ const getNextProductsButtonBackgroundListIndex = () => {
 };
 
 const productsContainerGradientList = [
-  "radial-gradient( circle, rgba(16, 139, 182, 1) 0%, rgba(0, 64, 87, 1) 100% )",
+  "radial-gradient( circle, rgba(16, 139, 182, 1) 0%, rgba(0, 64, 87, 1) 100%, rgba(100, 64, 87, 1) 100%)",
   "radial-gradient( circle, rgba(75, 143, 111, 1) 0%, rgba(53, 107, 92, 1) 87%, rgba(52, 103, 90, 1) 92%, rgba(52, 104, 79, 1) 100% )",
+  "radial-gradient(circle, rgba(213,199,5,1) 0%, rgba(255,195,96,1) 55%, rgba(255,154,46,1) 100%, rgba(52,50,0,1) 100%)",
+  "radial-gradient(circle, rgba(185,12,12,1) 28%, rgba(157,16,19,1) 58%, rgba(122,0,14,1) 83%)",
 ];
 
 const productsContainerElement = document.querySelector(".products-class");
@@ -67,9 +84,14 @@ const getNextProductsGradientIndex = () => {
     (productsGradientIndex + 1) % productsContainerGradientList.length;
   return productsGradientIndex;
 };
+
 productsContentElement.classList.add("text-focus-in");
+
 productsButtonElement.addEventListener("click", (event) => {
   const currentCounterProductsShow = countProductsShow();
+  productsTagNameElement.textContent = capitalizeFirstLetter(
+    productsShowCase[currentCounterProductsShow]["name"]
+  );
   productsButtonElement.style.backgroundColor =
     productsButtonBackgroundList[getNextProductsButtonBackgroundListIndex()];
   // Start the rotation animation
