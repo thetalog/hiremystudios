@@ -304,5 +304,11 @@ html {
   font-size: 15px;
   font-style: normal;
   display: none;
-  color: red;
+  width: max-content;
+}
+.contact-section-tag {
+  font-family: "DarlingCoffee", sans-serif;
+  font-size: 35px;
+  color: white;
+  margin-bottom: 25px;
 }

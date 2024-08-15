@@ -227,30 +227,40 @@ for (let i of weeklyUpdatesList) {
 document
   .getElementById("form-submit-btn")
   .addEventListener("click", function (event) {
+    event.target.classList.add("disabled");
+    event.target.classList.add("loading");
     event.preventDefault();
     // Get reCAPTCHA response
+    document.getElementById("error-message").classList.add("red");
+    document.getElementById("error-message").classList.remove("green");
     const recaptchaResponse = grecaptcha.getResponse();
-
     if (recaptchaResponse.length === 0) {
-      document.getElementById("error-message").style.display = "block";
-      document.getElementById("error-message").textContent =
+      document.getElementById("error-message-content").textContent =
         "Please complete the reCAPTCHA.";
+      event.target.classList.remove("disabled");
+      event.target.classList.remove("loading");
       return;
     }
     const email = document.getElementById("form-email").value.trim();
     const subject = document.getElementById("form-subject").value.trim();
     const message = document.getElementById("form-message").value.trim();
-    const errorMessage = document.getElementById("error-message");
-    errorMessage.textContent = "";
+    const errorMessage = document.getElementById("error-message-content");
 
     if (!validateEmail(email)) {
       errorMessage.textContent = "Please enter a valid email address.";
+      event.target.classList.remove("disabled");
+      event.target.classList.remove("loading");
+      return;
     } else if (subject === "") {
       errorMessage.textContent = "Please enter a subject.";
+      event.target.classList.remove("disabled");
+      event.target.classList.remove("loading");
+      return;
     } else if (message === "") {
       errorMessage.textContent = "Please enter a message.";
-    } else {
-      errorMessage.textContent = "Form submitted successfully!";
+      event.target.classList.remove("disabled");
+      event.target.classList.remove("loading");
+      return;
     }
 
     const firebaseConfig = {
@@ -270,21 +280,49 @@ document
 
     const usersCollection = collection(db, "support");
 
-    try {
-      (async () => {
+    (async () => {
+      try {
         await addDoc(usersCollection, {
           email: email,
           subject: subject,
           message: message,
         });
-        console.log("Document successfully written!");
-      })();
-    } catch (error) {
-      console.error("Error adding document: ", error);
-    }
+        errorMessage.textContent = "Message sent successfully!";
+        document.getElementById("error-message").classList.remove("red");
+        document.getElementById("error-message").classList.add("green");
+      } catch (error) {
+        errorMessage.textContent = "Message sent failed!";
+      } finally {
+        event.target.classList.remove("disabled");
+        event.target.classList.remove("loading");
+        return;
+      }
+    })();
   });
 
 function validateEmail(email) {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailPattern.test(email);
 }
+
+// Select the target node (the <p> element)
+const targetNode = document.getElementById("error-message-content");
+
+// Create a MutationObserver instance
+const observer = new MutationObserver(function (mutationsList, observer) {
+  for (let mutation of mutationsList) {
+    if (mutation.type === "childList" || mutation.type === "characterData") {
+      document.getElementById("error-message").style.display =
+        document.getElementById("error-message-content").innerText.length !== 0
+          ? "block"
+          : "none";
+      // Your callback function or code here
+    }
+  }
+});
+
+// Configure the observer to watch for text changes
+const config = { childList: true, subtree: true, characterData: true };
+
+// Start observing the target node for configured mutations
+observer.observe(targetNode, config);

@@ -43,7 +43,13 @@
           >
             Subscription
           </button>
-          <button class="ui button nav-button-bold-value">Contact Us</button>
+          <button
+            class="ui button nav-button-bold-value"
+            onclick="document.getElementById('contact-section-fragment').scrollIntoView();
+          "
+          >
+            Contact Us
+          </button>
         </div>
       </div>
       <div class="home-section-div">
@@ -86,6 +92,7 @@
     </section>
     <section class="contact-section" id="contact-section-fragment">
       <div class="contact-section-map">
+        <div class="contact-section-tag">Contact Us</div>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17629.998439091643!2d91.66742721504568!3d26.1325883982366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5b5429dcd223%3A0x81c21924efef0b47!2sTetelia%2C%20Guwahati%2C%20Assam!5e1!3m2!1sen!2sin!4v1723649984372!5m2!1sen!2sin"
           width="600"
@@ -138,8 +145,8 @@
               class="g-recaptcha"
               data-sitekey="6Ldg6CYqAAAAAAnmyI3cvvFLmOW_epLCzLsCWC9C"
             ></div>
-            <div class="ui label" id="error-message">
-              <div class="detail"></div>
+            <div class="ui red label" id="error-message" contenteditable="true">
+              <p id="error-message-content"></p>
             </div>
             <div class="ui button" tabindex="0" id="form-submit-btn">Send</div>
           </div>
