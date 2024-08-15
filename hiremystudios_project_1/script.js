@@ -326,3 +326,29 @@ const config = { childList: true, subtree: true, characterData: true };
 
 // Start observing the target node for configured mutations
 observer.observe(targetNode, config);
+
+const cursorDownArrow = document.querySelector(".down-arrow-section-img");
+cursorDownArrow.addEventListener("click", (event) => {
+  const homeSectionViewHeight = document
+    .querySelectorAll(".home-section")[0]
+    .getBoundingClientRect().height;
+  const productsSectionViewHeight = document
+    .querySelectorAll(".products-section")[0]
+    .getBoundingClientRect().height;
+  const subscriptionSectionViewHeight = document
+    .querySelectorAll(".subscription-section")[0]
+    .getBoundingClientRect().height;
+  const contactSectionViewHeight = document
+    .querySelectorAll(".contact-section")[0]
+    .getBoundingClientRect().height;
+
+  const homeSectionScrollHeight =
+    document.querySelectorAll(".home-section")[0].scrollHeight;
+  const productsSectionScrollHeight =
+    document.querySelectorAll(".products-section")[0].scrollHeight;
+  const subscriptionSectionScrollHeight = document.querySelectorAll(
+    ".subscription-section"
+  )[0].scrollHeight;
+  const contactSectionScrollHeight =
+    document.querySelectorAll(".contact-section")[0].scrollHeight;
+});

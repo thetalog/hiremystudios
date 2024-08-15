@@ -9,6 +9,19 @@ html {
   font-family: "other";
   src: url("./assets/fonarto/Fonarto.ttf") format("truetype");
 }
+.down-arrow-section {
+  width: 100vw;
+  top: 94vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  rotate: -90deg;
+}
+.down-arrow-section .down-arrow-section-img {
+  cursor: pointer !important;
+}
 .home-section {
   width: 100vw;
   height: 100vh;
