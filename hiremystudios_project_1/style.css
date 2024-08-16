@@ -1,6 +1,3 @@
-html {
-  scroll-behavior: smooth;
-}
 @font-face {
   font-family: "DarlingCoffee";
   src: url("./assets/darling_coffee/Darling\ Coffee.ttf") format("truetype");

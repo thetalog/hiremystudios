@@ -1,12 +1,3 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  getDocs,
-} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
-
 const productsShowCase = [
   {
     name: "cashew",
@@ -226,7 +217,7 @@ for (let i of weeklyUpdatesList) {
 
 document
   .getElementById("form-submit-btn")
-  .addEventListener("click", function (event) {
+  .addEventListener("click", async function (event) {
     event.target.classList.add("disabled");
     event.target.classList.add("loading");
     event.preventDefault();
@@ -272,7 +263,14 @@ document
       appId: "1:656947110935:web:37a697984965e90adfe852",
       measurementId: "G-5BREDQB3VM",
     };
-
+    const url = "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+    const { initializeApp } = await import(url);
+    const url2 =
+      "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+    const { getFirestore, collection, addDoc, getDocs } = await import(url2);
+    const url3 =
+      "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
+    const { getAnalytics } = await import(url3);
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
