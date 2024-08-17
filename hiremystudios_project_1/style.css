@@ -335,6 +335,9 @@ body {
 }
 
 @media screen and (max-width: 450px) {
+  body {
+    width: 100vw;
+  }
   .home-section-nav {
     min-height: auto;
   }
@@ -366,13 +369,109 @@ body {
     justify-content: flex-start;
   }
   .home-section-img {
-    width: 20em;
-    height: 20em;
+    width: 23rem;
+    height: 23rem;
   }
   .home-section-container {
     align-self: center;
     padding: 25px;
     left: 0;
     right: 0;
+    bottom: 8rem;
+  }
+  .products-section {
+    overflow-x: hidden;
+    width: 100%;
+    padding: 8rem 3rem 8rem 3rem;
+  }
+  #background-video {
+    position: absolute;
+    z-index: -2;
+    transform: scale(1.2);
+    filter: blur(3px) brightness(70%) contrast(150%) grayscale(50%) opacity(0.7);
+  }
+  .products-class {
+    width: 100%;
+    flex-direction: column;
+  }
+  .products-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .products-class-child-1 {
+    flex-direction: column;
+    flex-grow: 2;
+  }
+  .products-img-tag {
+    font-family: "DarlingCoffee", sans-serif;
+    align-self: center;
+    font-size: 3rem;
+    color: rgb(247, 247, 247);
+    padding: 0;
+  }
+  .products-img {
+    max-width: 200px;
+    height: 200px;
+  }
+  .products-class-child-2 {
+    margin-top: 10px;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+  .products-button {
+    margin: 0;
+    padding: 0;
+    transform: rotate(90deg);
+  }
+  .products-content {
+    font-size: 1rem;
+    font-family: "other", sans-serif;
+    font-weight: 500 !important;
+    color: white;
+    word-wrap: break-word;
+    width: 100%;
+    overflow-y: scroll;
+    flex-grow: 2;
+  }
+  .subscription-section {
+    overflow: hidden;
+    padding: 8rem 3rem 8rem 3rem;
+  }
+  .contact-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .contact-section-map {
+    display: flex;
+    flex-direction: column;
+  }
+  .contact-section-address > * {
+    margin-bottom: 1px !important;
+  }
+  .contact-section-info-container > * {
+    font-size: 8rem;
+  }
+  .map-iframe {
+    width: 200px;
+    height: 200px;
+  }
+  .contact-section {
+    overflow: hidden;
+    padding: 3rem 3rem 3rem 3rem;
+  }
+  .contact-section-tag {
+    margin-bottom: 1rem;
+  }
+  .footer-section {
+    height: 30px;
+  }
+  .footer-section-tag {
+    font-size: 1rem !important;
+    margin-left: 20px;
   }
 }

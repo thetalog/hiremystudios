@@ -324,3 +324,18 @@ const config = { childList: true, subtree: true, characterData: true };
 
 // Start observing the target node for configured mutations
 observer.observe(targetNode, config);
+
+const scrollContainer = document.getElementsByClassName("products-content");
+
+function autoScroll() {
+  scrollContainer.scrollLeft += 1; // Adjust scroll speed by changing the increment value
+  if (
+    scrollContainer.scrollLeft >=
+    scrollContainer.scrollWidth - scrollContainer.clientWidth
+  ) {
+    scrollContainer.scrollLeft = 0; // Reset scroll to start when it reaches the end
+  }
+}
+
+// Start auto-scrolling
+setInterval(autoScroll, 2); // Adjust interval time for scroll speed
