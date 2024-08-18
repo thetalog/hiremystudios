@@ -3,13 +3,13 @@ const productsShowCase = [
     name: "cashew",
     linkSrc: "./assets/cashew.png",
     description:
-      "We offer premium cashews that stand out for their exceptional quality and flavor. Grown on our well-tended farms, our cashews are hand-harvested and meticulously processed to ensure every nut is fresh, crunchy, and full of natural goodness. Whether you're looking to add a nutritious touch to your snacks or elevate your recipes, our cashews are the perfect choice. Experience the difference with Aura Farming's superior cashews, and taste the dedication we put into every harvest.",
+      "We offer premium cashews that stand out for their exceptional quality and flavor. Grown on our well-tended farms, our cashews are hand-harvested and meticulously processed to ensure every nut is fresh, crunchy, and full of natural goodness. Whether you're looking to add a nutritious touch to your snacks or elevate your recipes, our cashews are the perfect choice. Experience the difference with Aora Farming's superior cashews, and taste the dedication we put into every harvest.",
   },
   {
     name: "almonds",
     linkSrc: "./assets/almonds.png",
     description:
-      "We offer premium almonds that stand out for their superior quality and delightful taste. Grown on our carefully nurtured farms, our almonds are hand-picked and meticulously processed to ensure each nut is fresh, crunchy, and packed with natural goodness. Whether you're looking to enrich your snacks with wholesome nutrition or enhance your culinary creations, our almonds are the perfect choice. Experience the difference with Aura Farming's exceptional almonds, and savor the dedication we invest in every harvest.",
+      "We offer premium almonds that stand out for their superior quality and delightful taste. Grown on our carefully nurtured farms, our almonds are hand-picked and meticulously processed to ensure each nut is fresh, crunchy, and packed with natural goodness. Whether you're looking to enrich your snacks with wholesome nutrition or enhance your culinary creations, our almonds are the perfect choice. Experience the difference with Aora Farming's exceptional almonds, and savor the dedication we invest in every harvest.",
   },
   {
     name: "hazelnuts",
@@ -21,7 +21,7 @@ const productsShowCase = [
     name: "pistachio",
     linkSrc: "./assets/pistachio.png",
     description:
-      "Whether you're looking to enhance your cooking or enjoy a healthy treat, Aura Farming's pistachios deliver exceptional quality in every bite. Discover the difference our dedication makes and experience the unmatched flavor of our premium pistachios.",
+      "Whether you're looking to enhance your cooking or enjoy a healthy treat, Aora Farming's pistachios deliver exceptional quality in every bite. Discover the difference our dedication makes and experience the unmatched flavor of our premium pistachios.",
   },
 ];
 
@@ -179,7 +179,7 @@ const weeklyUpdatesList = [
     updateDate: "September 4, 2024",
     updateHeading: "Sustainable Farming Practices in Action",
     updateContent:
-      "At Aura Farming, sustainability is a core value. This week, we’ve introduced new water-saving irrigation techniques and are using organic fertilizers to reduce our environmental impact. Our commitment to sustainable practices ensures that our nuts are not only high-quality but also grown in an eco-friendly manner.",
+      "At Aora Farming, sustainability is a core value. This week, we’ve introduced new water-saving irrigation techniques and are using organic fertilizers to reduce our environmental impact. Our commitment to sustainable practices ensures that our nuts are not only high-quality but also grown in an eco-friendly manner.",
   },
   {
     updateDate: "August 28, 2024",
@@ -197,7 +197,7 @@ const weeklyUpdatesList = [
     updateDate: "August 14, 2024",
     updateHeading: "Harvesting Begins for the Cashew Season!",
     updateContent:
-      "We’re excited to announce the start of our cashew harvest this week at Aura Farming. The trees are yielding a bountiful crop of high-quality cashews, and our team is busy hand-harvesting to ensure the best selection. Stay tuned for updates on the processing and quality checks!",
+      "We’re excited to announce the start of our cashew harvest this week at Aora Farming. The trees are yielding a bountiful crop of high-quality cashews, and our team is busy hand-harvesting to ensure the best selection. Stay tuned for updates on the processing and quality checks!",
   },
 ];
 
